@@ -49,3 +49,4 @@ public abstract class Impressora {
     public abstract void setColorida(boolean colorida);
 
 }
+//this is a comment
