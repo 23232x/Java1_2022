@@ -4,7 +4,6 @@
  */
 package Aula_20_05;
 
-import static Aula_20_05.Laser.lasers;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -20,7 +19,7 @@ public class Matricial extends Impressora {
     protected static List<Matricial> matriciais = new ArrayList<>();
 
 //iterator
-    Iterator<Matricial> it = matriciais.iterator();
+    protected static Iterator<Matricial> it = matriciais.iterator();
 
     private int numAgulhas;
     private boolean imprimeVias;
@@ -136,13 +135,23 @@ public class Matricial extends Impressora {
 
         Matricial matricial = new Matricial(qtdAgulhas, via, marca, modelo, peso, cor);
         Matricial.matriciais.add(matricial);
+       // Matricial.totalImpressoras.add(matricial);
 
     }
 
-    
     public static void lista_Impresoras_Matriciais() {
-        
-        
+
+        while (it.hasNext()) {
+            Matricial mat = it.next();
+            JOptionPane.showMessageDialog(null, "Impressoras Matriciais"
+                    + "Marca: " + mat.getMarca()
+                    + "Modelo: " + mat.getModelo()
+                    + "Peso: " + mat.getPeso()
+                    + "Imprime Colorido: " + mat.isColorida()
+                    + "Imprime Vias: " + mat.isImprimeVias()
+                    + "Número de agulhas: " + mat.getNumAgulhas());
+
+        }
 
     }
 

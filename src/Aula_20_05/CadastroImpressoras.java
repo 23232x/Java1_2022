@@ -14,73 +14,81 @@ public class CadastroImpressoras {
 
     public static void main(String[] args) {
 
-        int opcao = 0;
-        int switcher_menu, switcher_cadastro, switcher_consulta;
+        int switcher_cadastro, switcher_consulta;
+        int switcher_menu = 0;
 
-        do {
+        try {
 
-            //Menu de cadastro principal
-            switcher_menu = Integer.parseInt(JOptionPane.showInputDialog("Menu de opções: "
-                    + "\n 1 - Cadastrar Impressoras"
-                    + "\n 2 - Consultar Impressoras"
-                    + "\n 3 - Sair"
-            ));
+            do {
 
-            //submenu de cadastro
-            if (switcher_menu == 1) {
+                //Menu de cadastro principal
+                switcher_menu = Integer.parseInt(JOptionPane.showInputDialog("Menu de opções: "
+                        + "\n 1 - Cadastrar Impressoras"
+                        + "\n 2 - Consultar Impressoras"
+                        + "\n 3 - Sair"
+                ));
 
-                do {
+                //submenu de cadastro
+                if (switcher_menu == 1) {
 
-                    switcher_cadastro = Integer.parseInt(JOptionPane.showInputDialog("Menu cadastro Impressoras: "
-                            + "\n 1 - Matricial"
-                            + "\n 2 - Laser"
-                            + "\n 3 - Sair"
-                    ));
+                    try {
+                        do {
 
-                    if (switcher_cadastro < 1 || switcher_cadastro > 3) {
-                        JOptionPane.showMessageDialog(null, "Opção Inválida");
-//  Matricial.MostraMenuMatricial();
-                    } else if (switcher_cadastro == 1) {
-                        Laser.MostraMenuLaser();
-                    } else if (switcher_cadastro == 2) {
+                            switcher_cadastro = Integer.parseInt(JOptionPane.showInputDialog("Menu cadastro Impressoras: "
+                                    + "\n 1 - Matricial"
+                                    + "\n 2 - Laser"
+                                    + "\n 3 - Sair"
+                            ));
 
+                            if (switcher_cadastro == 1) {
+                                Matricial.MostraMenuMatricial();
+                            } else if (switcher_cadastro == 2) {
+                                Laser.MostraMenuLaser();
+                            }
+
+                        } while (switcher_cadastro != 3);
+                        
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Opção inválida");
                     }
+                } else if (switcher_menu == 2) {
+                    //Consultar Impressoras
 
-                } while (switcher_cadastro != 3);
+                    do {
+                        switcher_consulta = Integer.parseInt(JOptionPane.showInputDialog("Consulta Impressoras: "
+                                + "\n 1 - Consultar Matricial"
+                                + "\n 2 - Consultar Laser"
+                                + "\n 3 - Todas Impressoras"
+                                + "\n 4 - Sair"
+                        ));
 
-            } else if (switcher_menu == 2) {
-                //Consultar Impressoras
+                        try {
+                            switch (switcher_consulta) {
+                                case 1:
+                                    Matricial.lista_Impresoras_Matriciais();
+                                    break;
+                                case 2:
+                                    Laser.lista_Impresoras_Lasers();
+                                    break;
+                                case 3:
+                                    Matricial.lista_Impresoras_Matriciais();
+                                    Laser.lista_Impresoras_Lasers();
+                                    break;
+                                default:
 
-                do {
-                    switcher_consulta = Integer.parseInt(JOptionPane.showInputDialog("Consulta Impressoras: "
-                            + "\n 1 - Consultar Matricial"
-                            + "\n 2 - Consultar Laser"
-                            + "\n 3 - Todas Impressoras"
-                            + "\n 4 - Sair"
-                    ));
+                            }
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(null, "Opcao inválida ou caracter inválido");
+                        }
 
-                    switch (switcher_consulta) {
-                        case 1:
-                            Matricial.lista_Impresoras_Matriciais();
-                            break;
-                        case 2:
-                            Laser.lista_Impresoras_Lasers();
-                            break;
-                        case 3:
-                            Matricial.lista_Impresoras_Matriciais();
-                            Laser.lista_Impresoras_Lasers();
-                            break;
-                        default:
-                            JOptionPane.showMessageDialog(null, "Opção Inválida");
-                            break;
-                    }
+                    } while (switcher_consulta != 4);
 
-                } while (switcher_consulta != 4);
+                }
+            } while (switcher_menu != 3);
 
-            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Caracter inválido! \n Aceito apenas números ");
 
-        } while (switcher_menu != 3);
-
+        }
     }
-
 }

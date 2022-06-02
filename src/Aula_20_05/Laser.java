@@ -130,6 +130,7 @@ public class Laser extends Impressora {
 
         //adiciona o objeto criado ao ArryList;
         Laser.lasers.add(laser);
+       // totalImpressoras.add(laser);
 
     }
 
@@ -139,17 +140,14 @@ public class Laser extends Impressora {
         while (it.hasNext()) {
             Laser laser = it.next();
 
-            JOptionPane.showMessageDialog(null,
-                    "Marca: " + laser.getMarca()
+            JOptionPane.showMessageDialog(null, "Impressoras Lasers \n"
+                    + "Marca: " + laser.getMarca()
                     + "Modelo: " + laser.getModelo()
                     + "Peso: " + laser.getPeso()
                     + "Imprime Colorido: " + laser.isColorida()
                     + "Imprime Frente e Verso: " + laser.isFreteVerso()
                     + "Capacidade do toner: " + laser.getCapacidadeToner()
             );
-
         }
-
     }
-
 }

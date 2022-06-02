@@ -4,17 +4,19 @@
  */
 package Aula_20_05;
 
-import static Aula_20_05.Laser.lasers;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author asamado
  */
 public abstract class Impressora {
-    
-    
 
+    /**
+     *
+     */
+    //protected static List<Impressora> totalImpressoras = new ArrayList<>();
 
     //variváveis da classe pai são sempre protected?
     protected String marca;
