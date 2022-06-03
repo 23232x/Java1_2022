@@ -11,13 +11,23 @@ import java.util.List;
  *
  * @author asamado
  */
+
+/*
+Operador ternário! Implementar!
+.replace(",", " 2") -> substitui a virgula pelo ponto.
+
+
+
+*/
+
+
+
 public abstract class Impressora {
 
     /**
      *
      */
     //protected static List<Impressora> totalImpressoras = new ArrayList<>();
-
     //variváveis da classe pai são sempre protected?
     protected String marca;
     protected String modelo;

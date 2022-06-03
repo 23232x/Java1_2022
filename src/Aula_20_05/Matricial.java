@@ -86,6 +86,9 @@ public class Matricial extends Impressora {
     @Override
     public void setColorida(boolean colorida) {
         this.colorida = colorida;
+        //if(colorida=true){
+            
+        
     }
 
     //Exibe o menu de opções da impressora Matricial
