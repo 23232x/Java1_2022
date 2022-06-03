@@ -9,5 +9,16 @@ package Aula11_0306;
  * @author asamado
  */
 public class TesteSoma {
-    
+
+    public static void main(String[] args) {
+
+        Soma soma = new Soma();
+        System.out.println("Soma dois inteiros " + soma.Soma(10, 20));
+
+        System.out.println("Soma de dois Double " +  soma.Soma(1.4,1.2));
+
+        System.out.println("Soma duas Strings " + soma.Soma("2", "4"));
+
+    }
+
 }

@@ -14,7 +14,7 @@ public class Soma {
         return (a + b);
     }
 
-    public double Soma(double a, int b) {
+    public double Soma(double a, double b) {
         return (a + b);
 
     }
