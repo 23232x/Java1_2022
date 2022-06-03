@@ -99,21 +99,20 @@ public class Matricial extends Impressora {
 
         String[] choices = {"s", "n"};
 
-        marca = JOptionPane.showInputDialog(null, "Digite a marca da impressora: ");
+        marca = JOptionPane.showInputDialog(null, "Digite a marca da impressora Matricial: ");
 
-        modelo = JOptionPane.showInputDialog("Digite o Modelo: ");
+        modelo = JOptionPane.showInputDialog("Digite o Modelo da impressora Matricial: ");
 
-        peso = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o peso:"));
+        peso = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o peso da impressora Matricial:"));
 
         colorido = (String) JOptionPane.showInputDialog(null, "Colorido?...",
-                "Imprime Colorido (S/N)", JOptionPane.QUESTION_MESSAGE, null, // Use
+                "Matricial Imprime Colorido (S/N)", JOptionPane.QUESTION_MESSAGE, null, // Use
                 // default
                 // icon
                 choices, // Array of choices
                 choices[1]); // Initial choice
         cor = Boolean.valueOf(colorido);
 
-        System.out.println("cor = " + cor);
         /*
         if (!(cor = true)) {
             colorido = "sim";
@@ -121,9 +120,8 @@ public class Matricial extends Impressora {
             colorido = "não";
         }*/
         //-------
-
         vias = (String) JOptionPane.showInputDialog(null, "vias?...",
-                "Imprime Vias (S/N)", JOptionPane.QUESTION_MESSAGE, null, // Use
+                "Matricial Imprime Vias (S/N)", JOptionPane.QUESTION_MESSAGE, null, // Use
                 // default
                 // icon
                 choices, // Array of choices
@@ -131,28 +129,34 @@ public class Matricial extends Impressora {
         via = Boolean.valueOf(vias);
 
         //quantidade de agulhas
-        qtdAgulhas = Integer.parseInt(JOptionPane.showInputDialog("Quantidade de agulhas:"));
+        qtdAgulhas = Integer.parseInt(JOptionPane.showInputDialog("Quantidade de agulhas da Matricial:"));
 
         Matricial matricial = new Matricial(qtdAgulhas, via, marca, modelo, peso, cor);
         Matricial.matriciais.add(matricial);
-       // Matricial.totalImpressoras.add(matricial);
+        // Matricial.totalImpressoras.add(matricial);
 
     }
 
     public static void lista_Impresoras_Matriciais() {
 
-        while (it.hasNext()) {
-            Matricial mat = it.next();
-            JOptionPane.showMessageDialog(null, "Impressoras Matriciais"
-                    + "Marca: " + mat.getMarca()
-                    + "Modelo: " + mat.getModelo()
-                    + "Peso: " + mat.getPeso()
-                    + "Imprime Colorido: " + mat.isColorida()
-                    + "Imprime Vias: " + mat.isImprimeVias()
-                    + "Número de agulhas: " + mat.getNumAgulhas());
+        if (Matricial.matriciais.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Não há impressoras Matriciais cadastradas");
+        } else {
+
+            for (Matricial mat : matriciais) {
+
+                JOptionPane.showMessageDialog(null,
+                        "Impressoras Matriciais"
+                        + "\n Marca: " + mat.getMarca()
+                        + "\n Modelo: " + mat.getModelo()
+                        + "\n Peso: " + mat.getPeso()
+                        + "\n Imprime Colorido: " + mat.isColorida()
+                        + "\n Imprime Vias: " + mat.isImprimeVias()
+                        + "\n Número de agulhas: " + mat.getNumAgulhas());
+
+            }
 
         }
-
     }
 
 }

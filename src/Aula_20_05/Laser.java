@@ -14,8 +14,9 @@ import javax.swing.JOptionPane;
  * @author asamado
  */
 public class Laser extends Impressora {
-
+//sda
     //list das lasers
+
     protected static List<Laser> lasers = new ArrayList<>();
 
     //Iterator
@@ -94,17 +95,17 @@ public class Laser extends Impressora {
         String[] choices = {"s", "n"};
 
         //Marca da impressora Laser
-        String marca = JOptionPane.showInputDialog(null, "Digite a marca da impressora: ");
+        String marca = JOptionPane.showInputDialog(null, "Digite a marca da impressora Laser: ");
 
         //Modelo da impressora Laser
-        String modelo = JOptionPane.showInputDialog("Digite o Modelo: ");
+        String modelo = JOptionPane.showInputDialog("Digite o Modelo Laser: ");
 
         //Peso da impressora Laser
-        double peso = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o peso:"));
+        double peso = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o peso Laser:"));
 
         //Se a impressora laser imprime Frente e Verso.
         Str_freteVerso = (String) JOptionPane.showInputDialog(null, "Duplex?...",
-                "Imprime frente e Verso (S/N)", JOptionPane.QUESTION_MESSAGE, null, // Use
+                "Laser Imprime frente e Verso (S/N)", JOptionPane.QUESTION_MESSAGE, null, // Use
                 // default
                 // icon
                 choices, // Array of choices
@@ -115,7 +116,7 @@ public class Laser extends Impressora {
 
         String Str_colorido;
         Str_colorido = (String) JOptionPane.showInputDialog(null, "Colorido?...",
-                "Imprime Colorido (S/N)", JOptionPane.QUESTION_MESSAGE, null, // Use
+                "Impressora Laser Imprime Colorido (S/N)", JOptionPane.QUESTION_MESSAGE, null, // Use
                 // default
                 // icon
                 choices, // Array of choices
@@ -130,24 +131,29 @@ public class Laser extends Impressora {
 
         //adiciona o objeto criado ao ArryList;
         Laser.lasers.add(laser);
-       // totalImpressoras.add(laser);
+        // totalImpressoras.add(laser);
 
     }
 
     //iterator
     public static void lista_Impresoras_Lasers() {
+        if (Laser.lasers.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Não há impressoras Lasers cadastradas");
+        } else {
 
-        while (it.hasNext()) {
-            Laser laser = it.next();
+            for (Laser laser : lasers) {
+                laser.getMarca();
 
-            JOptionPane.showMessageDialog(null, "Impressoras Lasers \n"
-                    + "Marca: " + laser.getMarca()
-                    + "Modelo: " + laser.getModelo()
-                    + "Peso: " + laser.getPeso()
-                    + "Imprime Colorido: " + laser.isColorida()
-                    + "Imprime Frente e Verso: " + laser.isFreteVerso()
-                    + "Capacidade do toner: " + laser.getCapacidadeToner()
-            );
+                JOptionPane.showMessageDialog(null,
+                        "Impressoras Lasers \n"
+                        + "\n Marca: " + laser.getMarca()
+                        + "\n Modelo: " + laser.getModelo()
+                        + "\n Peso: " + laser.getPeso()
+                        + "\n Imprime Colorido: " + laser.isColorida()
+                        + "\n Imprime Frente e Verso: " + laser.isFreteVerso()
+                        + "\n Capacidade do toner: " + laser.getCapacidadeToner()
+                );
+            }
         }
     }
 }
